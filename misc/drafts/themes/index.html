@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme drafts</title>
+    <!-- Gallery of the five theme drafts. Pick one to preview it live on the sheet and the two page mockups. -->
+    <script src="themes.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Playfair+Display:wght@500&family=Fraunces:opsz,wght@9..144,500&family=DM+Serif+Display&family=Newsreader:opsz,wght@6..72,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --bg: #f4f4f1; --text: #1b1e23; --muted: #5c6168; --line: #dcdcd6; --card: #fff; color-scheme: light; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 Inter, system-ui, sans-serif; }
+      main { max-width: 1320px; margin: 0 auto; padding: 40px 16px 64px; }
+      h1 { font: 600 1.9rem/1.2 Inter, sans-serif; margin: 0 0 6px; }
+      .lede { color: var(--muted); margin: 0 0 28px; max-width: 70ch; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+      .theme { text-align: left; font: inherit; color: inherit; cursor: pointer; border: 2px solid transparent; border-radius: 12px; padding: 0; overflow: hidden; background: var(--card); box-shadow: 0 1px 0 var(--line), 0 0 0 1px var(--line); }
+      .theme[aria-pressed='true'] { border-color: var(--text); }
+      .theme__face { padding: 18px 16px 16px; min-height: 150px; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 6px; }
+      .theme__name { font-size: 1.6rem; line-height: 1.1; margin: 0 0 6px; }
+      .theme__sample { font-size: 0.85rem; opacity: 0.8; }
+      .theme__swatches { display: flex; height: 10px; }
+      .theme__swatches span { flex: 1; }
+      .theme__info { padding: 12px 16px 16px; display: grid; gap: 6px; font-size: 0.85rem; }
+      .theme__meta { color: var(--muted); }
+      .theme__intent { margin: 0; }
+      .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 36px 0 12px; }
+      .tabs button, .tabs a { font: 500 0.9rem Inter, sans-serif; border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 999px; padding: 7px 16px; cursor: pointer; text-decoration: none; }
+      .tabs button[aria-pressed='true'] { background: var(--text); color: var(--card); border-color: var(--text); }
+      .tabs a { margin-left: auto; }
+      iframe { width: 100%; height: 820px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Theme drafts</h1>
+      <p class="lede">
+        Five replacements for the amber theme. Each one is a small override stylesheet layered over the app's real <code>theme.css</code>,
+        together with <code>base.css</code>, which swaps the menu-board details (all-caps condensed titles, dotted amber outlines) for editorial ones.
+        Pick a theme, then a page, to preview it live.
+      </p>
+      <div class="grid" id="themes"></div>
+      <div class="tabs" id="pages">
+        <button data-page="themes/sheet.html" aria-pressed="true">Components</button>
+        <button data-page="welcome.html" data-extra="&amp;p=0.58">Welcome</button>
+        <button data-page="contents-panels.html">Contents</button>
+        <a id="open" href="#" target="_blank" rel="noopener">Open in a new tab ↗</a>
+      </div>
+      <iframe id="preview" title="Theme preview"></iframe>
+    </main>
+    <script>
+      const SERIF = {
+        'charcoal-brass': "600 1.75rem 'Cormorant Garamond', serif",
+        'midnight-copper': "500 1.6rem 'Playfair Display', serif",
+        'forest-sage': "500 1.6rem Fraunces, serif",
+        'linen-terracotta': "400 1.6rem 'DM Serif Display', serif",
+        'porcelain-ink': "500 1.65rem Newsreader, serif",
+      };
+      const state = { theme: RB_THEMES[0].id, page: 'themes/sheet.html', extra: '' };
+      const grid = document.getElementById('themes');
+      RB_THEMES.forEach((t) => {
+        const [bg, , text, muted, accent] = t.swatches;
+        const b = document.createElement('button');
+        b.className = 'theme';
+        b.dataset.id = t.id;
+        b.innerHTML = `
+          <div class="theme__face" style="background:${bg};color:${text}">
+            <p class="theme__name" style="font:${SERIF[t.id]}">${t.name}</p>
+            <span class="theme__sample" style="color:${muted}">Roast chicken · 75 min</span>
+            <span style="display:inline-block;margin-left:8px;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.1em;background:${accent};color:${t.mode === 'light' ? '#fff' : bg}">MAIN</span>
+          </div>
+          <div class="theme__swatches">${t.swatches.map((c) => `<span style="background:${c}" title="${c}"></span>`).join('')}</div>
+          <div class="theme__info">
+            <span class="theme__meta">${t.mode === 'light' ? 'Light' : 'Dark'} · ${t.fonts}</span>
+            <span class="theme__meta">${t.swatches.join(' ')}</span>
+            <p class="theme__intent">${t.intent}</p>
+          </div>`;
+        b.onclick = () => { state.theme = t.id; render(); };
+        grid.appendChild(b);
+      });
+      document.querySelectorAll('#pages button').forEach((b) => {
+        b.onclick = () => { state.page = b.dataset.page; state.extra = b.dataset.extra || ''; render(); };
+      });
+      function render() {
+        document.querySelectorAll('.theme').forEach((b) => b.setAttribute('aria-pressed', b.dataset.id === state.theme));
+        document.querySelectorAll('#pages button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.page === state.page));
+        const url = `../${state.page}?theme=${state.theme}${state.extra}`;
+        document.getElementById('preview').src = url;
+        document.getElementById('open').href = url;
+      }
+      render();
+    </script>
+  </body>
+</html>

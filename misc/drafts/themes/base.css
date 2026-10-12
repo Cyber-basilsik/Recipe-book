@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Shared by every theme draft, loaded after src/styles/theme.css and before the theme file.
+   It re-points the rules that hard-code the amber theme's colours at tokens, and swaps the
+   menu-board details (condensed all-caps titles, dotted amber outlines) for editorial ones.
+   Each theme file then only sets tokens, plus these extra ones:
+     --scrim            darkening over photos (also the dark-theme page colour)
+     --on-photo(-muted) text over photos, which stays light in the light themes
+     --danger-text      readable error text on --bg
+     --logo-glow        shadow behind the floating logo
+     --ticker-script    script line over the accent-coloured ticker
+     --serif-weight     weight for the serif titles
+   ========================================================================== */
+
+:root {
+  --accent-tint: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* ---- Hard-coded colours -> tokens ---- */
+input::placeholder,
+textarea::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 70%, transparent);
+}
+input:focus,
+textarea:focus,
+select:focus,
+.tag-input__box:focus-within {
+  box-shadow: 0 0 0 3px var(--accent-tint);
+}
+.btn--danger {
+  --btn-fg: var(--danger-text);
+  border-color: color-mix(in srgb, var(--danger) 60%, transparent);
+}
+.btn--danger:hover {
+  --btn-bg: color-mix(in srgb, var(--danger) 12%, transparent);
+}
+.error-banner {
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 45%, transparent);
+  color: var(--danger-text);
+}
+.notice {
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+.spec-table td {
+  border-bottom-color: var(--line);
+}
+.star {
+  color: var(--line);
+}
+.chip__count,
+.user-menu__panel a:hover,
+.user-menu__panel button:hover {
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+}
+.logo {
+  filter: drop-shadow(0 1px 6px var(--logo-glow));
+}
+.welcome-hero__actions .btn--ghost {
+  border-color: color-mix(in srgb, var(--text) 40%, transparent);
+}
+.welcome-ticker__script {
+  color: var(--ticker-script);
+}
+
+/* Scrims over photos */
+.hero {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--scrim) 95%, transparent) 0%, color-mix(in srgb, var(--scrim) 70%, transparent) 55%, color-mix(in srgb, var(--scrim) 35%, transparent) 100%),
+    var(--hero-bg) center 40% / cover no-repeat;
+}
+.search input {
+  background: var(--bg-deep);
+}
+.save-btn,
+.toc__arrow {
+  background: color-mix(in srgb, var(--scrim) 78%, transparent);
+}
+.toc__arrow {
+  color: var(--on-photo);
+}
+.recipe-hero__overlay {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--scrim) 10%, transparent) 30%, color-mix(in srgb, var(--scrim) 92%, transparent) 100%);
+}
+.welcome-book__front::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--scrim) 90%, transparent) 0%,
+    color-mix(in srgb, var(--scrim) 72%, transparent) 30%,
+    color-mix(in srgb, var(--scrim) 20%, transparent) 52%,
+    color-mix(in srgb, var(--scrim) 30%, transparent) 70%,
+    color-mix(in srgb, var(--scrim) 92%, transparent) 100%
+  );
+}
+.welcome-book__back::before {
+  background: color-mix(in srgb, var(--scrim) 45%, transparent);
+}
+.welcome-outro::before {
+  background: color-mix(in srgb, var(--scrim) 58%, transparent);
+}
+.panel-card a::after {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--scrim) 70%, transparent) 0%,
+    color-mix(in srgb, var(--scrim) 10%, transparent) 30%,
+    color-mix(in srgb, var(--scrim) 15%, transparent) 55%,
+    color-mix(in srgb, var(--scrim) 90%, transparent) 100%
+  );
+}
+.menu-card a::after {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--scrim) 15%, transparent) 0%, color-mix(in srgb, var(--scrim) 20%, transparent) 45%, color-mix(in srgb, var(--scrim) 92%, transparent) 100%);
+}
+
+/* Text over photos stays light, whatever the page colour. */
+.hero,
+.recipe-hero,
+.login-page__art,
+.welcome-book__front,
+.welcome-book__back,
+.welcome-outro,
+.panel-card a,
+.menu-card a {
+  --text: var(--on-photo);
+  --text-muted: var(--on-photo-muted);
+  color: var(--text);
+}
+
+/* ---- Editorial details ---- */
+
+/* Hairline cards instead of dotted amber outlines. */
+.recipe-card,
+.review,
+.form-section,
+.home-sidebar__body,
+.meal-items li,
+.login-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.recipe-card {
+  background: var(--surface);
+  padding: 0 0 18px;
+  overflow: hidden;
+}
+.recipe-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+.recipe-card__body {
+  padding: 16px 18px 0;
+}
+.save-btn {
+  right: 12px;
+  top: 12px;
+}
+.card-category {
+  top: 14px;
+  left: 54px;
+  border-radius: 999px;
+}
+.empty-state {
+  border: 1px dashed var(--line);
+}
+.price-like {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+}
+
+/* Titles: the theme's serif, in sentence case. */
+.display,
+.page-title,
+.section-title,
+.recipe-card__title,
+.menu-section__title,
+.recipe-hero__title,
+.welcome-book__title,
+.welcome-outro__title,
+.bracket-title h1,
+.login-card__title,
+.toc__title,
+.menu-card__label,
+.feature__title,
+.welcome-collage__label,
+.welcome-ticker__word,
+.meal-items__title,
+.logo__text,
+.meta-strip__value,
+.step-label {
+  font-family: var(--font-serif);
+  font-weight: var(--serif-weight);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+.recipe-card__title {
+  font-size: 1.35rem;
+}
+.toc__title {
+  color: var(--text);
+}
+.logo__text span {
+  font-style: italic;
+}
+.welcome-book__title {
+  font-size: 13cqw;
+}
+.welcome-book__page--right .welcome-book__title {
+  font-size: min(15cqw, 5.25rem);
+  line-height: 1;
+}
+
+/* Small labels keep tracked capitals, in the body sans. */
+.btn--primary,
+.toolbar-pill,
+.eyebrow,
+.welcome-eyebrow,
+.field__label,
+.meta-strip__label,
+.status-badge,
+.card-category,
+.segmented button,
+.pill-radio__option,
+.panel-card__num,
+.panel-card__name,
+.welcome-book__the,
+.welcome-hero__scroll {
+  font-weight: 600;
+}
+.btn--primary {
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+}
+.toolbar-pill {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}

@@ -1,0 +1,34 @@
+/* Linen & Terracotta: light. Warm paper and terracotta, like a printed cookbook. */
+:root {
+  --bg: #f6f1e9;
+  --bg-deep: #fffdf9;
+  --surface: #fffdf9;
+  --surface-2: #efe7da;
+  --line: #ded3c3;
+  --text: #2b2420;
+  --text-muted: #6b6158;
+  --accent: #a8492a;
+  --accent-soft: #c4704f;
+  --accent-ink: #fffaf3;
+  --danger: #b42318;
+  --danger-text: #a3241a;
+  --success: #3d7a4f;
+
+  --scrim: #1f1914;
+  --on-photo: #fbf7f0;
+  --on-photo-muted: rgba(251, 247, 240, 0.85);
+  --logo-glow: rgba(246, 241, 233, 0.9);
+  --ticker-script: #f7dccb;
+  --serif-weight: 400;
+
+  --font-display: 'DM Sans', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow: 0 12px 30px rgba(70, 45, 25, 0.12);
+  color-scheme: light;
+}
+.polaroid {
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(70, 45, 25, 0.18);
+}

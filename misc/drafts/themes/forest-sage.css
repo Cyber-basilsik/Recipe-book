@@ -1,0 +1,30 @@
+/* Forest & Sage: dark. Deep green with a soft sage accent. */
+:root {
+  --bg: #121915;
+  --bg-deep: #0c110e;
+  --surface: #1a241e;
+  --surface-2: #223027;
+  --line: #2f3d34;
+  --text: #ebe7dc;
+  --text-muted: #a3ab9f;
+  --accent: #a8bd8f;
+  --accent-soft: #8fa477;
+  --accent-ink: #121915;
+  --danger: #e06c5f;
+  --danger-text: #f2a69d;
+  --success: #7cc4a0;
+
+  --scrim: #0c110e;
+  --on-photo: #f3f1e8;
+  --on-photo-muted: rgba(243, 241, 232, 0.8);
+  --logo-glow: rgba(0, 0, 0, 0.6);
+  --ticker-script: #fbfaf3;
+  --serif-weight: 500;
+
+  --font-display: 'Figtree', system-ui, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}

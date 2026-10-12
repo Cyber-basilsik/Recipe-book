@@ -1,0 +1,37 @@
+/* Charcoal & Brass: dark. The current room, with the amber dulled to aged brass. */
+:root {
+  --bg: #141517;
+  --bg-deep: #0e0f10;
+  --surface: #1e1f22;
+  --surface-2: #27282c;
+  --line: #36373b;
+  --text: #ece7de;
+  --text-muted: #a9a49b;
+  --accent: #c2a572;
+  --accent-soft: #a88d5f;
+  --accent-ink: #141517;
+  --danger: #d9534f;
+  --danger-text: #f19a97;
+  --success: #74ad80;
+
+  --scrim: #0e0f10;
+  --on-photo: #f4efe6;
+  --on-photo-muted: rgba(244, 239, 230, 0.8);
+  --logo-glow: rgba(0, 0, 0, 0.6);
+  --ticker-script: #fffaf0;
+  --serif-weight: 600;
+
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+/* Cormorant runs small; give the titles a little more size. */
+.recipe-card__title {
+  font-size: 1.55rem;
+}
+.menu-section__title {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+}

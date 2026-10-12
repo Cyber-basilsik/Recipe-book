@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draft — theme sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+    <!-- App components, with markup copied from src/components and src/pages, against the app's real stylesheet.
+         ?theme=<id> layers one of the drafts in this folder over it (see themes.js); without it, the current theme. -->
+    <link rel="stylesheet" href="../../../recipe-book/src/styles/theme.css" />
+    <script src="themes.js"></script>
+    <style>
+      /* Sheet layout only. */
+      .sheet { display: grid; gap: 56px; padding-top: 32px; padding-bottom: 72px; }
+      .sheet-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+      .sheet-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+      @media (max-width: 760px) { .sheet-cols { grid-template-columns: 1fr; } }
+      .demo-focus { border-color: var(--amber); box-shadow: 0 0 0 3px var(--accent-tint, rgba(245, 166, 35, 0.2)); }
+      .recipe-hero { height: 300px; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a href="#" class="toolbar-pill">
+          <svg class="toolbar-pill__icon" viewBox="0 0 20 10" fill="none" aria-hidden="true">
+            <path d="M1 3c3-2.5 5 2.5 9 0s6-2.5 9 0" />
+            <path d="M1 8c3-2.5 5 2.5 9 0s6-2.5 9 0" />
+          </svg>
+          Menu
+        </a>
+        <a href="#" class="logo">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span class="logo__text">Recipe<span>Book</span></span>
+        </a>
+        <div class="user-menu">
+          <button type="button" class="toolbar-pill user-menu__toggle" aria-expanded="false">
+            <span class="avatar avatar--sm" aria-hidden="true">C</span>
+            <span class="site-nav__name">cook</span>
+            <span class="user-menu__caret" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container sheet">
+      <!-- Recipe browser: menu section -->
+      <section>
+        <p class="eyebrow">Recipes</p>
+        <h1 class="page-title">The recipe book</h1>
+        <span class="underline-bar"></span>
+        <div class="sheet-row" style="margin-bottom: 28px">
+          <div class="segmented"><button class="is-active">Everyone</button><button>Mine</button><button>Saved</button></div>
+          <button class="chip is-active">breakfast <span class="chip__count">12</span></button>
+          <button class="chip">lunch <span class="chip__count">8</span></button>
+          <button class="chip">dinner <span class="chip__count">21</span></button>
+          <button class="chip">snack <span class="chip__count">5</span></button>
+        </div>
+
+        <div class="menu-section__head">
+          <h2 class="menu-section__title">Mains</h2>
+          <span class="menu-section__rule"></span>
+          <button class="link-btn">See all 21</button>
+        </div>
+        <div class="recipe-grid recipe-grid--section">
+          <article class="recipe-card">
+            <a href="#" class="recipe-card__media"><img src="../../../recipe-book/src/assets/dinner.jpg" alt="" /><span class="badge-num">01</span></a>
+            <button type="button" class="card-category">Main</button>
+            <button type="button" class="save-btn is-saved" aria-label="Remove from saved"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" /></svg></button>
+            <div class="recipe-card__body">
+              <h3 class="recipe-card__title"><a href="#">Roast chicken with lemon</a></h3>
+              <p class="recipe-card__desc">A whole bird roasted over potatoes and thyme, with a sharp pan sauce.</p>
+              <ul class="tag-list"><li><button class="tag-link">#sunday</button></li><li><button class="tag-link">#roast</button></li><li><button class="tag-link">#family</button></li></ul>
+              <div class="recipe-card__meta">
+                <span class="stars stars--sm"><span class="stars__row"><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 50%">★</span></span></span><span class="stars__count">(14)</span></span>
+                <span class="price-like">75 min · 4 serv</span>
+              </div>
+            </div>
+          </article>
+          <article class="recipe-card">
+            <a href="#" class="recipe-card__media"><img src="../../../recipe-book/src/assets/lunch.jpg" alt="" /><span class="badge-num">02</span></a>
+            <button type="button" class="card-category">Main</button>
+            <button type="button" class="save-btn" aria-label="Save recipe"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" /></svg></button>
+            <div class="recipe-card__body">
+              <h3 class="recipe-card__title"><a href="#">Grain bowl with tahini</a></h3>
+              <p class="recipe-card__desc">Farro, roast squash, herbs and a garlicky tahini dressing.</p>
+              <ul class="tag-list"><li><button class="tag-link">#vegetarian</button></li><li><button class="tag-link">#meal-prep</button></li></ul>
+              <div class="recipe-card__meta">
+                <span class="stars stars--sm"><span class="stars__row"><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 0%">★</span></span></span><span class="stars__count">(6)</span></span>
+                <span class="price-like">35 min · 2 serv</span>
+              </div>
+            </div>
+          </article>
+          <article class="recipe-card">
+            <a href="#" class="recipe-card__media"><img src="../../../recipe-book/src/assets/breakfast.jpg" alt="" /><span class="badge-num">03</span></a>
+            <button type="button" class="card-category">Main</button>
+            <button type="button" class="save-btn" aria-label="Save recipe"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" /></svg></button>
+            <div class="recipe-card__body">
+              <h3 class="recipe-card__title"><a href="#">Shakshuka</a></h3>
+              <p class="recipe-card__desc">Eggs baked in a spiced tomato and pepper sauce. Serve with bread.</p>
+              <ul class="tag-list"><li><button class="tag-link">#eggs</button></li><li><button class="tag-link">#one-pan</button></li></ul>
+              <div class="recipe-card__meta">
+                <span class="stars stars--sm"><span class="stars__row"><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 30%">★</span></span><span><span class="star" style="--fill: 0%">★</span></span></span><span class="stars__count">(3)</span></span>
+                <span class="price-like">30 min · 2 serv</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Recipe page: hero, meta strip, ingredients and nutrition -->
+      <section>
+        <div class="recipe-hero">
+          <img class="recipe-hero__img" src="../../../recipe-book/src/assets/dinner.jpg" alt="" />
+          <div class="recipe-hero__overlay">
+            <div class="container">
+              <button class="card-category recipe-hero__category" style="position: static">Main</button>
+              <h1 class="recipe-hero__title">Roast chicken with lemon</h1>
+            </div>
+          </div>
+        </div>
+        <div class="meta-strip" style="margin-top: 24px">
+          <div class="meta-strip__item"><span class="meta-strip__label">Prep</span><span class="meta-strip__value">75 <small>min</small></span></div>
+          <div class="meta-strip__item">
+            <span class="meta-strip__label">Servings</span>
+            <span class="stepper"><button>−</button><span class="meta-strip__value">4</span><button>+</button></span>
+          </div>
+          <div class="meta-strip__item"><span class="meta-strip__label">Rating</span><span class="stars stars--md"><span class="stars__row"><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 50%">★</span></span></span><span class="stars__count">(14)</span></span></div>
+          <div class="meta-strip__actions"><button class="btn btn--pill btn--sm is-active">Saved</button><button class="btn btn--ghost btn--sm">Edit</button></div>
+        </div>
+        <div class="recipe-layout">
+          <div class="panel panel--outline">
+            <h2 class="section-title">Ingredients</h2>
+            <ul class="ingredient-list">
+              <li><span class="ingredient-list__thumb ingredient-list__thumb--blank">C</span><span><strong>1.6 kg</strong> whole chicken</span></li>
+              <li><span class="ingredient-list__thumb ingredient-list__thumb--blank">L</span><span><strong>2</strong> lemons</span></li>
+              <li><span class="ingredient-list__thumb ingredient-list__thumb--blank">P</span><span><strong>800 g</strong> waxy potatoes</span></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="section-title">Method</h2>
+            <ol class="steps">
+              <li><span class="step-label">Step 1</span><p>Heat the oven to 220°C. Pat the chicken dry and season it well.</p></li>
+              <li><span class="step-label">Step 2</span><p>Halve the lemons and push them into the cavity with the thyme.</p></li>
+            </ol>
+            <div class="nutrition">
+              <h2 class="section-title">Nutrition <span class="small muted">per serving</span></h2>
+              <table class="spec-table">
+                <thead><tr><th>Nutrient</th><th>Amount</th></tr></thead>
+                <tbody><tr><td>Calories</td><td>540 kcal</td></tr><tr><td>Protein</td><td>42 g</td></tr><tr><td>Carbohydrate</td><td>38 g</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Forms, buttons, feedback -->
+      <section class="sheet-cols">
+        <div class="form-section" style="margin-top: 0">
+          <h2 class="section-title">New recipe</h2>
+          <div class="form-grid">
+            <label class="field field--full"><span class="field__label">Title</span><input class="demo-focus" value="Roast chicken with lemon" /></label>
+            <label class="field"><span class="field__label">Servings</span><input value="4" /></label>
+            <label class="field"><span class="field__label">Prep (min)</span><input placeholder="e.g. 30" /></label>
+            <fieldset class="pill-radio field--full">
+              <legend class="field__label">Category</legend>
+              <div class="pill-radio__options">
+                <label class="pill-radio__option">Starter</label><label class="pill-radio__option is-active">Main</label><label class="pill-radio__option">Side</label><label class="pill-radio__option">Dessert</label>
+              </div>
+            </fieldset>
+            <div class="field field--full">
+              <span class="field__label">Tags</span>
+              <div class="tag-input"><div class="tag-input__box"><span class="chip chip--static chip--sm">sunday <button>×</button></span><span class="chip chip--static chip--sm">roast <button>×</button></span><input placeholder="Add a tag" /></div></div>
+            </div>
+          </div>
+          <div class="form-actions"><button class="btn btn--ghost">Cancel</button><button class="btn btn--primary">Save recipe</button></div>
+        </div>
+
+        <div class="stack">
+          <div class="sheet-row">
+            <button class="btn btn--primary">Open the book</button>
+            <button class="btn">Default</button>
+            <button class="btn btn--ghost">Ghost</button>
+            <button class="btn btn--danger">Delete</button>
+            <button class="btn btn--pill">How to make</button>
+            <button class="link-btn">Link button</button>
+          </div>
+          <div class="sheet-row">
+            <span class="status-badges"><span class="status-badge status-badge--featured">★ Featured</span><span class="status-badge status-badge--public">Public</span><span class="status-badge status-badge--pending">In review</span><span class="status-badge">Private</span></span>
+            <label class="switch"><input type="checkbox" checked /><span class="switch__track"></span></label>
+            <label class="switch"><input type="checkbox" /><span class="switch__track"></span></label>
+          </div>
+          <div class="error-banner"><span>Could not reach the recipes service.</span><button class="link-btn">Retry</button></div>
+          <p class="notice">Editing a public meal plan sends it back to review.</p>
+          <ul class="meal-items">
+            <li><div class="meal-items__media"><img src="../../../recipe-book/src/assets/drink.jpg" alt="" /></div><div class="meal-items__body"><span class="meal-items__title">Elderflower spritz</span><span class="small muted">1 portion · with ice</span></div></li>
+            <li><div class="meal-items__media"><img src="../../../recipe-book/src/assets/snacks.jpg" alt="" /></div><div class="meal-items__body"><span class="meal-items__title">Lemon posset</span><span class="small muted">1 portion</span></div></li>
+          </ul>
+          <ul class="review-list">
+            <li class="review"><div class="review__head"><strong>Cook 3fa9c1</strong><span class="stars stars--sm"><span class="stars__row"><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span><span><span class="star" style="--fill: 100%">★</span></span></span></span></div><p>Crispy skin, and the pan sauce is the best bit. Will make again.</p></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__brand"><span class="logo"><span class="logo__mark"></span><span class="logo__text">Recipe<span>Book</span></span></span><span class="muted small">Theme draft</span></div>
+        <dl class="site-footer__credits">
+          <div class="site-footer__group"><dt>Built with</dt><dd><a href="#">React</a> <span class="site-footer__licence">MIT</span></dd><dd><a href="#">Vite</a> <span class="site-footer__licence">MIT</span></dd></div>
+        </dl>
+      </div>
+    </footer>
+  </body>
+</html>

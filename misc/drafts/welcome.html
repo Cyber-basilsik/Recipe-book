@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draft — welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet" />
+    <!-- Same markup as src/pages/WelcomePage.tsx and components/Footer.tsx, against the app's real stylesheet.
+         Add ?p=0..1 to fix the book's progress (0 closed, 0.3 mid-flip, 0.58 open, 1 filling the screen) and show every section, and &y=N to shift the page up by N px (for screenshots). -->
+    <link rel="stylesheet" href="../../recipe-book/src/styles/theme.css" />
+    <!-- ?theme=<id> layers one of the drafts in themes/ over the stylesheet. -->
+    <script src="themes/themes.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner container">
+        <a href="#" class="toolbar-pill">
+          <svg class="toolbar-pill__icon" viewBox="0 0 20 10" fill="none" aria-hidden="true">
+            <path d="M1 3c3-2.5 5 2.5 9 0s6-2.5 9 0" />
+            <path d="M1 8c3-2.5 5 2.5 9 0s6-2.5 9 0" />
+          </svg>
+          Menu
+        </a>
+        <a href="welcome.html" class="logo">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span class="logo__text">Recipe<span>Book</span></span>
+        </a>
+        <div class="user-menu">
+          <button type="button" class="toolbar-pill user-menu__toggle" aria-expanded="false">
+            <span class="avatar avatar--sm" aria-hidden="true">C</span>
+            <span class="site-nav__name">cook</span>
+            <span class="user-menu__caret" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="welcome">
+        <section class="welcome-hero">
+          <div class="welcome-hero__frame">
+            <div class="welcome-book">
+              <div class="welcome-book__page welcome-book__page--right">
+                <p class="welcome-eyebrow">Welcome to</p>
+                <h1 class="welcome-book__title">Recipe Book</h1>
+                <p class="welcome-hero__lede">Every recipe, meal plan and review your kitchen has, in one shared book.</p>
+                <div class="welcome-hero__actions">
+                  <a href="contents-panels.html" class="btn btn--primary">Open the book</a>
+                  <a href="#" class="btn btn--ghost">Meal plans</a>
+                </div>
+              </div>
+              <div class="welcome-book__cover" aria-hidden="true">
+                <div class="welcome-book__front">
+                  <img src="../../recipe-book/src/assets/covers/cover-1.jpg" alt="" />
+                </div>
+                <div class="welcome-book__back">
+                  <img src="../../recipe-book/src/assets/lunch.jpg" alt="" />
+                  <p class="welcome-script">Cook. Taste.<br />Share. Repeat.</p>
+                </div>
+              </div>
+              <span class="welcome-book__spine"></span>
+            </div>
+            <span class="welcome-hero__scroll" aria-hidden="true">Scroll to discover</span>
+          </div>
+        </section>
+
+        <section class="welcome-intro container">
+          <div class="welcome-intro__copy reveal">
+            <p class="welcome-eyebrow">Your kitchen’s own book</p>
+            <p>
+              No more recipes lost in notebooks, screenshots and the backs of envelopes. Recipe Book keeps the dishes
+              you love, the plans you cook from and the notes you leave each other together, so dinner is one tap away.
+            </p>
+            <a href="#" class="welcome-link">See what’s on the menu</a>
+          </div>
+          <figure class="polaroid polaroid--tilt-r welcome-intro__polaroid reveal">
+            <img src="../../recipe-book/src/assets/dinner.jpg" alt="" />
+            <figcaption class="polaroid__caption">Dinner tonight?</figcaption>
+          </figure>
+        </section>
+
+        <section class="welcome-collage container" aria-label="Chapters">
+          <a href="#" class="welcome-collage__tile welcome-collage__tile--1 reveal">
+            <img src="../../recipe-book/src/assets/breakfast.jpg" alt="" />
+            <span class="welcome-collage__label">Breakfast</span>
+          </a>
+          <a href="#" class="welcome-collage__tile welcome-collage__tile--2 reveal">
+            <img src="../../recipe-book/src/assets/lunch.jpg" alt="" />
+            <span class="welcome-collage__label">Lunch</span>
+          </a>
+          <a href="#" class="welcome-collage__tile welcome-collage__tile--3 reveal">
+            <img src="../../recipe-book/src/assets/drink.jpg" alt="" />
+            <span class="welcome-collage__label">Drinks</span>
+          </a>
+        </section>
+
+        <section class="welcome-ticker" aria-label="Something for every meal">
+          <p class="welcome-script welcome-ticker__script">Something for</p>
+          <div class="welcome-ticker__track" aria-hidden="true">
+            <span class="welcome-ticker__run">
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>All</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Breakfast</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Lunch</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Dinner</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Snacks</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Drinks</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Dessert</span>
+            </span>
+            <span class="welcome-ticker__run">
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>All</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Breakfast</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Lunch</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Dinner</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Snacks</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Drinks</span>
+              <span class="welcome-ticker__word"><span class="welcome-ticker__star">✦</span>Dessert</span>
+            </span>
+          </div>
+        </section>
+
+        <section class="welcome-features container" aria-label="Features">
+          <article class="feature">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/lunch.jpg" alt="" /><figcaption class="polaroid__caption">lunch, sorted</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/breakfast.jpg" alt="" /><figcaption class="polaroid__caption">first thing</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Discover</p>
+              <h2 class="feature__title">Find recipes</h2>
+              <p class="feature__tagline">Inspiration at your fingertips.</p>
+              <p class="feature__body">Browse the book by chapter, from breakfast to dessert, search by title, narrow it down by tag, and switch between everyone’s recipes and your own.</p>
+              <a href="contents-panels.html" class="welcome-link">Browse the chapters</a>
+            </div>
+          </article>
+          <article class="feature feature--flip">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/dinner.jpg" alt="" /><figcaption class="polaroid__caption">sunday dinner</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/drink.jpg" alt="" /><figcaption class="polaroid__caption">and to drink</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--3"><img src="../../recipe-book/src/assets/lunch.jpg" alt="" /><figcaption class="polaroid__caption">for six</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Plan</p>
+              <h2 class="feature__title">Create meal plans</h2>
+              <p class="feature__tagline">Master your prep.</p>
+              <p class="feature__body">Put dishes together for a sitting, set the portions per person and see the nutrition per person. One shopping list adds up every ingredient, scaled to however many people are eating.</p>
+              <a href="#" class="welcome-link">See the meal plans</a>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/snacks.jpg" alt="" /><figcaption class="polaroid__caption">grandma’s</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/breakfast.jpg" alt="" /><figcaption class="polaroid__caption">our secret</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Create</p>
+              <h2 class="feature__title">Add recipes</h2>
+              <p class="feature__tagline">Build your digital legacy.</p>
+              <p class="feature__body">Keep family recipes for good, with their ingredients, steps, nutrition, meal times, tags and a photo, organised in one place and editable any time.</p>
+              <a href="#" class="welcome-link">Write a recipe</a>
+            </div>
+          </article>
+          <article class="feature feature--flip">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/dinner.jpg" alt="" /><figcaption class="polaroid__caption">serves 2… or 12</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/snacks.jpg" alt="" /><figcaption class="polaroid__caption">seconds?</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Scale</p>
+              <h2 class="feature__title">Cook for any crowd</h2>
+              <p class="feature__tagline">Cooking for more?</p>
+              <p class="feature__body">Change the servings on any recipe and every ingredient is rescaled for you, so the quantities on the page always match the table.</p>
+              <a href="#" class="welcome-link">Pick a recipe</a>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/drink.jpg" alt="" /><figcaption class="polaroid__caption">five stars</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/lunch.jpg" alt="" /><figcaption class="polaroid__caption">a keeper</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Savour</p>
+              <h2 class="feature__title">Save, rate &amp; review</h2>
+              <p class="feature__tagline">Remember what worked.</p>
+              <p class="feature__body">Bookmark your favourites, rate them out of five stars, and read what other cooks thought before you start.</p>
+              <a href="#" class="welcome-link">Your saved recipes</a>
+            </div>
+          </article>
+          <article class="feature feature--flip">
+            <div class="feature__photos reveal" aria-hidden="true">
+              <figure class="polaroid feature__shot feature__shot--1"><img src="../../recipe-book/src/assets/breakfast.jpg" alt="" /><figcaption class="polaroid__caption">brunch club</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--2"><img src="../../recipe-book/src/assets/dinner.jpg" alt="" /><figcaption class="polaroid__caption">yours faithfully</figcaption></figure>
+              <figure class="polaroid feature__shot feature__shot--3"><img src="../../recipe-book/src/assets/drink.jpg" alt="" /><figcaption class="polaroid__caption">cheers</figcaption></figure>
+            </div>
+            <div class="feature__copy reveal">
+              <p class="welcome-script feature__script">Share</p>
+              <h2 class="feature__title">Share your plans</h2>
+              <p class="feature__tagline">From your table to everyone’s.</p>
+              <p class="feature__body">Publish a meal plan to the public catalog, and browse the featured plans other cooks have shared.</p>
+              <a href="#" class="welcome-link">Open the catalog</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="welcome-outro">
+          <img src="../../recipe-book/src/assets/snacks.jpg" alt="" />
+          <div class="welcome-outro__text reveal">
+            <p class="welcome-script">Your turn</p>
+            <h2 class="welcome-outro__title">What are we cooking?</h2>
+            <div class="welcome-hero__actions">
+              <a href="#" class="btn btn--primary">New recipe</a>
+              <a href="contents-panels.html" class="btn btn--ghost">Open the book</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__brand">
+          <span class="logo__text">Recipe<span>Book</span></span>
+          <span class="muted small">Cook. Taste. Share. Repeat.</span>
+        </div>
+        <dl class="site-footer__credits">
+          <div class="site-footer__group">
+            <dt>Libraries</dt>
+            <dd><a href="https://react.dev">React</a> <span class="site-footer__licence">MIT</span></dd>
+            <dd><a href="https://react.dev">React DOM</a> <span class="site-footer__licence">MIT</span></dd>
+            <dd><a href="https://reactrouter.com">React Router</a> <span class="site-footer__licence">MIT</span></dd>
+          </div>
+          <div class="site-footer__group">
+            <dt>Fonts</dt>
+            <dd><a href="https://fonts.google.com/specimen/Oswald">Oswald</a> <span class="site-footer__licence">OFL 1.1</span></dd>
+            <dd><a href="https://fonts.google.com/specimen/Gloock">Gloock</a> <span class="site-footer__licence">OFL 1.1</span></dd>
+            <dd><a href="https://fonts.google.com/specimen/Inter">Inter</a> <span class="site-footer__licence">OFL 1.1</span></dd>
+            <dd><a href="https://fonts.google.com/specimen/Parisienne">Parisienne</a> <span class="site-footer__licence">OFL 1.1</span></dd>
+          </div>
+          <div class="site-footer__group">
+            <dt>Built with</dt>
+            <dd><a href="https://vite.dev">Vite</a> <span class="site-footer__licence">MIT</span></dd>
+            <dd><a href="https://www.typescriptlang.org">TypeScript</a> <span class="site-footer__licence">Apache 2.0</span></dd>
+          </div>
+        </dl>
+      </div>
+    </footer>
+
+    <!-- The two effects WelcomePage runs in useEffect. -->
+    <script>
+      const hero = document.querySelector('.welcome-hero');
+      const fixed = new URLSearchParams(location.search).get('p');
+      const update = () => {
+        const rect = hero.getBoundingClientRect();
+        const travel = rect.height - innerHeight;
+        const clamp01 = (n) => Math.min(1, Math.max(0, n));
+        const p = fixed !== null ? Number(fixed) : travel > 0 ? clamp01(-rect.top / travel) : 1;
+        hero.style.setProperty('--open', clamp01(p / 0.55).toFixed(3));
+        hero.style.setProperty('--grow', clamp01((p - 0.6) / 0.4).toFixed(3));
+      };
+      const y = new URLSearchParams(location.search).get('y');
+      if (y) document.body.style.marginTop = -Number(y) + 'px'; // headless screenshots don't repaint after scrollTo
+      update();
+      addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('is-visible')),
+        { threshold: 0.15 },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => {
+        if (fixed) el.classList.add('is-visible');
+        else observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

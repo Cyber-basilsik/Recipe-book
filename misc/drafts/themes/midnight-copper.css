@@ -1,0 +1,33 @@
+/* Midnight & Copper: dark. Deep navy with a warm copper accent. */
+:root {
+  --bg: #0f141c;
+  --bg-deep: #0a0e14;
+  --surface: #18202c;
+  --surface-2: #212b39;
+  --line: #2e3a4b;
+  --text: #e8edf3;
+  --text-muted: #9aa6b5;
+  --accent: #d08c5c;
+  --accent-soft: #b8784c;
+  --accent-ink: #0f141c;
+  --danger: #e5636a;
+  --danger-text: #f4a3a7;
+  --success: #5fae84;
+
+  --scrim: #0a0e14;
+  --on-photo: #f3f5f8;
+  --on-photo-muted: rgba(243, 245, 248, 0.8);
+  --logo-glow: rgba(0, 0, 0, 0.6);
+  --ticker-script: #fff4ea;
+  --serif-weight: 500;
+
+  --font-display: 'Source Sans 3', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+body {
+  font-size: 17px;
+}

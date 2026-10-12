@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Large design reference media (not used by the build)
+misc/inspirataion/
+misc/MyRecordings/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
